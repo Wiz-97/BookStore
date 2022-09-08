@@ -1,7 +1,7 @@
-<%@page import="board.vo.Freeboard"%>
+<%@page import="vo.FreeboardVo"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
-<%@page import="comment.FreeboardDao"%>
+<%@page import="dao.FreeboardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -11,7 +11,7 @@
 	
 	FreeboardDao dao = FreeboardDao.getInstance();
 	
-	Freeboard vo = dao.getDetail(idx);
+	FreeboardVo vo = dao.getDetail(idx);
 	
 	String message;String href;
 	if(vo.getPassword().equals(password) ){  //글 비밀번호 일치 : 삭제 완료 -> 글 목록으로 이동.

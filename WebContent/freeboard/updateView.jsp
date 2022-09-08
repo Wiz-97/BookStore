@@ -55,23 +55,23 @@ button:hover {
 <h3>우리동네 커뮤니티 글 수정</h3>
 <hr>
 <form name="frm1" method="post" action="updateSave.jsp">
-	<input type="hidden" name="idx" value="${vo.idx }">
+	<input type="hidden" name="f_idx" value="${vo.f_idx }">
 	<input type="hidden" name="page" value="${page }">
  <table>
  	<tr><th>제목</th>
- 		<td><input type="text" name="subject" size="50" value="[수정] ${vo.subject }" readonly></td>
+ 		<td><input type="text" name="f_subject" size="50" value="[수정] ${vo.f_subject }" readonly></td>
  	</tr>
  	<tr>
 		<th>작성자</th>
- 		<td><input type="text" name="writer" size="50" value="${vo.writer }" disabled="disabled"></td>
+ 		<td><input type="text" name="nickName" size="50" value="${vo.nickName }" disabled="disabled"></td>
  	</tr>
  	 <tr>
 		<th>작성 날짜</th>
- 		<td><c:out value="${vo.wdate }"/></td>
+ 		<td><c:out value="${vo.fdate }"/></td>
  	</tr>
  	
  	<tr><th>내용</th>  <!-- textarea 의 크기 : rows="20" cols="80" -->
- 		<td><textarea  rows="20" cols="60" name="content" required><c:out value="${vo.content }"/></textarea>
+ 		<td><textarea  rows="20" cols="60" name="f_content" required><c:out value="${vo.f_content }"/></textarea>
  		<!--textarea 는 multi line 입력이 됩니다.  --></td>
  	</tr>
  	<tr><td colspan="2" align="center">

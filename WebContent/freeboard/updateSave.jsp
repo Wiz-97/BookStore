@@ -1,22 +1,21 @@
-<%@page import="board.vo.Freeboard"%>
-<%@page import="comment.FreeboardDao"%>
+<%@page import="vo.FreeboardVo"%>
+<%@page import="dao.FreeboardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
    	request.setCharacterEncoding("UTF-8");
 	
-	int idx = Integer.parseInt(request.getParameter("idx"));
-	String subject = request.getParameter("subject");
-	String content = request.getParameter("content");		
-	String ip = request.getRemoteAddr();
+	int f_idx = Integer.parseInt(request.getParameter("f_idx"));
+	String f_subject = request.getParameter("f_subject");
+	String f_content = request.getParameter("f_content");		
 	
 	String pageNo = request.getParameter("page");
 	FreeboardDao freedao = FreeboardDao.getInstance();
 
-	Freeboard vo 
-	= new Freeboard(idx,null,null,subject,content,0,null,ip,0);
+	FreeboardVo vo 
+	= new FreeboardVo(f_idx,null,null,f_subject,f_content,0,null,0);
 
 	freedao.update(vo);
-	response.sendRedirect("detailAction.jsp?idx="+idx +"&page="+pageNo);   //글목록 화면으로 url 재요청
+	response.sendRedirect("detailAction.jsp?idx="+f_idx +"&page="+pageNo);   //글목록 화면으로 url 재요청
 %>

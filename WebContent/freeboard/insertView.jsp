@@ -28,25 +28,25 @@ th {
 </style>
 </head>
 <body>
-<h3>우리동네 커뮤니티 글쓰기</h3>
+<h3>글쓰기</h3>
 <hr>
 <%= request.getRemoteAddr() %>
 <form name="frm1" method="post" action="insertAction.jsp">
 
  <table>
  	<tr><th>제목</th>
- 		<td><input type="text" name="subject" size="50" required></td>
+ 		<td><input type="text" name="f_subject" size="50" required></td>
  	</tr>
  	<tr>
 		<th>작성자</th>
- 		<td><input type="text" name="writer" size="50" required></td>
+ 		<td><input type="text" name="nickName" size="50" required></td>
  	</tr>
  	
  	<tr><th>글 비밀번호</th>
  		<td><input type="password" name="password" required></td>
  	</tr>
  	<tr><th>내용</th>  <!-- textarea 의 크기 : rows="20" cols="80" -->
- 		<td><textarea  rows="20" cols="60" name="content" required></textarea>
+ 		<td><textarea  rows="20" cols="60" name="f_content" required></textarea>
  		<!--textarea 는 multi line 입력이 됩니다.  --></td>
  	</tr>
  	<tr><td colspan="2" align="center">

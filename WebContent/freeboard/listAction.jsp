@@ -1,10 +1,10 @@
-<%@page import="board.vo.PageVo"%>
+<%@page import="vo.PageVo"%>
 <%@page import="java.time.LocalDate"%>
-<%@page import="board.vo.Freeboard"%>
+<%@page import="vo.FreeboardVo"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
-<%@page import="comment.FreeboardDao"%>
+<%@page import="dao.FreeboardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -26,7 +26,7 @@
 	map.put("startNo",pages.getStartNo());
 	map.put("endNo",pages.getEndNo());
 	
-	List<Freeboard> list = dao.getPageList(map);
+	List<FreeboardVo> list = dao.getPageList(map);
 	request.setAttribute("list", list);
 	request.setAttribute("today", LocalDate.now());
 	

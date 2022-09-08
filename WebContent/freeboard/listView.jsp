@@ -29,22 +29,22 @@ href="${pageContext.request.contextPath }/css/freeboard.css?v=3">
  	<c:forEach var="vo" items="${list}"> 
 	<li>
 	<ul  class="row">
-		<li>${vo.idx }</li>
-		<li><a href="detailAction.jsp?idx=${vo.idx}&page=${page}" class="title">${vo.subject }</a>
+		<li>${vo.f_idx }</li>
+		<li><a href="detailAction.jsp?idx=${vo.idx}&page=${page}" class="title">${vo.f_subject }</a>
 	 		...<span style="color:orange;font-size: 80%;">(${vo.commentCount })
 	 		</span></li>
-		<li>${vo.writer }</li>
+		<li>${vo.nickName }</li>
 		<li>${vo.readCount }</li>
 		<li>
 		<!-- vo.wdate 날짜 패턴을 적용한 결과 문자열을 wdate 변수로 저장 -->
-		<fmt:formatDate value="${vo.wdate }" pattern="yyyy-MM-dd" var="wdate"/>
+		<fmt:formatDate value="${vo.fdate }" pattern="yyyy-MM-dd" var="wdate"/>
 		<!-- 오늘 작성한 글은 시간으로 표시 -->
-		<c:if test='${wdate == today}'>
-			<fmt:formatDate value="${vo.wdate }" type="time"/>
+		<c:if test='${fdate == today}'>
+			<fmt:formatDate value="${vo.fdate }" type="time"/>
 		</c:if>
 		<!-- 오늘 이전에 작성한 글은 날짜로 표시 -->
-		<c:if test='${wdate != today}'>
-			<fmt:formatDate value="${vo.wdate }" pattern="yyyy-MM-dd"/>
+		<c:if test='${fdate != today}'>
+			<fmt:formatDate value="${vo.fdate }" pattern="yyyy-MM-dd"/>
 		</c:if>
 		</li>
 		

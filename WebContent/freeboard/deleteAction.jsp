@@ -4,13 +4,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	int idx = Integer.parseInt(request.getParameter("idx"));
+	int f_idx = Integer.parseInt(request.getParameter("f_idx"));
 	String pageNo = request.getParameter("page");
 	String password = request.getParameter("password");
 	
 	FreeboardDao dao = FreeboardDao.getInstance();
 	Map<String,Object> map = new HashMap<>();
-	map.put("idx",idx);
+	map.put("f_idx",f_idx);
 	map.put("password",password);
 	int result = dao.delete(map);
 	String message;String href;
@@ -19,7 +19,7 @@
 		href = "listAction.jsp?page="+pageNo;
 	}else {		//글 비밀번호 불일치 : 삭제 못함. -> 글 상세보기로 이동
 		message = "글 비밀번호가 틀립니다.";
-		href = "detailAction.jsp?idx="+idx + "&page=" + pageNo;
+		href = "detailAction.jsp?idx="+f_idx + "&page=" + pageNo;
 	}
 	
 	out.print("<script>");

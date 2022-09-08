@@ -31,8 +31,7 @@
 			<li>
 				<ul class="row">
 					<li>작성자</li>
-					<li>${bean.writer}<span
-				style="font-size: 70%; padding-left: 30px;">(${bean.ip})</span></li>
+					<li>${bean.writer}</li>
 					<li>작성날짜</li>
 					<li><fmt:formatDate value="${bean.fdate }" type="both"/></li>
 					<!-- pattern="yyyy-MM-dd HH:mm:ss , type= date,time,both -->
@@ -107,9 +106,9 @@
 			<li>
 				<ul class="crow">
 					<li>${cmt.nickName }</li>								
-					<li>${cmt.wdate }</li>		
+					<li>${cmt.fdate }</li>		
 					<!-- 삭제 구현 1) 로그인한 사용자의 글만 삭제 버튼이 보입니다.-->		
-					<li><a href="javascript:deleteCmt('${cmt.idx }','${bean.f_idx }')">삭제</a></li>				
+					<li><a href="javascript:deleteCmt('${cmt.cno }','${bean.f_idx }')">삭제</a></li>				
 				</ul>
 			</li>
 			<li>
