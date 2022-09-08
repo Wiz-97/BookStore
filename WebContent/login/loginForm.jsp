@@ -108,7 +108,7 @@
 <%@include file="../main/header.jsp" %>
  <div class="container">   
 <main class="form-signin w-100 m-auto">
-  <form action="Login.jsp" mathod="post">
+  <form action="Login.jsp" method="post">
     <a href ="../main/main.jsp"><img class="mb-4" src="../image/logo.png" alt="logo" width="72" height="57"></a>
     <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
@@ -118,7 +118,7 @@
     </div>
     <div class="form-floating">
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-      <label for="floatingPassword">비밀번호</label>
+      <label for="floatingPassword">비밀번호</label>	
     </div>
     <div class="button">
     <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button> 

@@ -16,7 +16,7 @@
 </head>
 <body>  <!-- 메인글: 익명으로 예시(글비밀번호 사용합니다.) , 댓글 : 실명으로 예시(로그인을 해야 글작성,삭제 할수 있습니다.) -->
 <main>
-	<h3>우리동네 커뮤니티 글상세보기</h3>
+	<h3>자유게시판 글 상세보기</h3>
 	<hr>
 	<div style="width: 80%; margin: auto;max-width: 700px;">
 		<ul id="main">
@@ -31,10 +31,9 @@
 			<li>
 				<ul class="row">
 					<li>작성자</li>
-					<li>${bean.writer}</li>
+					<li>${bean.nickName}</li>
 					<li>작성날짜</li>
 					<li><fmt:formatDate value="${bean.fdate }" type="both"/></li>
-					<!-- pattern="yyyy-MM-dd HH:mm:ss , type= date,time,both -->
 				</ul>
 			</li>
 			<li id="content">
@@ -43,7 +42,7 @@
 					<!-- textarea에 입력한 엔터는 \n db에도 \n으로 저장됩니다.
 					     브라우저 출력은 줄바꿈은 <br> 태그 해결1) pre 태그, 해결  2) \n을 <br>로 대치-->	
 					<li>
-						<pre>${bean.content}</pre>
+						<pre>${bean.f_content}</pre>
 					</li>				
 				</ul>
 			</li>
@@ -59,15 +58,15 @@
 	<hr>
 	<!-- 댓글 등록 -->
 	<form action="commentAction.jsp" method="post">
-	<!-- 필요한 파라미터 이지만 화면에는 표시안함. 2개 필요 : 메인글의 idx , 현재글의 페이지번호 -->
-	<input type="hidden" name="mno" value="${bean.f_idx }">
+	<!-- 필요한 파라미터 이지만 화면에는 표시안함. 2개 필요 : 메인글의 f_idx , 현재글의 페이지번호 -->
+	<input type="hidden" name="f_idx" value="${bean.f_idx }">
 	<input type="hidden" name="page" value="${page }">
 		
 		<ul id="main">
 			<li>
 				<ul class="row">
 					<li>작성자</li>	<!-- 1)로그인한 사용자가 작성할때는 로그인 이메일,닉네임 가져와서 표시 -->			
-					<li><input name="nickName" class="input" ></li>	
+					<li>${sessionScope.user }</li>	
 <!-- 				<li>글 비밀번호</li>댓글 삭제 : 1)로그인한 사용자가 본인글 삭제 또는 2)글 비밀번호 사용				
 					<li><input name="password" class="input" type="password"></li>		 -->		
 				</ul>
@@ -107,8 +106,10 @@
 				<ul class="crow">
 					<li>${cmt.nickName }</li>								
 					<li>${cmt.fdate }</li>		
-					<!-- 삭제 구현 1) 로그인한 사용자의 글만 삭제 버튼이 보입니다.-->		
-					<li><a href="javascript:deleteCmt('${cmt.cno }','${bean.f_idx }')">삭제</a></li>				
+					<!-- 삭제 구현 1) 로그인한 사용자의 글만 삭제 버튼이 보입니다.-->	
+					<c:if test="${sessionScope.user != null}">	
+						<button type ="button" onclick="javascript:deleteCmt('${cmt.cno }','${bean.f_idx }')">삭제</button>	
+					</c:if>			
 				</ul>
 			</li>
 			<li>
@@ -125,15 +126,14 @@
 		<div class="modal-content">
 			<span class="close" id="close">&times;</span><br>   <!-- 특수기호 코드 &times;  는  x 기호  -->
 			<div style="padding: 0px 20px;">
-				<b>글비밀번호</b><br>
+				<b>글 비밀번호</b><br>
 				<br>
 				<form action="deleteAction.jsp" method="post" name="frmPassword">
 						
 					<input type="hidden" name="f_idx" value="${bean.f_idx }"> <!--삭제할 글번호-->
 					<input type="hidden" name="page" value="${page }">	
 					<input type="hidden" name="func" value="1">	
-					<input
-						type="password" name="password" size="10">
+					<input type="text" name="delete" size="10">
 					<button style="padding: 5px 20px;" type="button" onclick="modalOK()">확인</button>	
 					<br>
 					<span style="color:red;font-size:0.8em;" id="err"></span>
@@ -142,6 +142,8 @@
 		</div>
 	</div>
 	<!-- 모달 끝 -->
+	
+	
 	<script type="text/javascript">
 	//모달 입력 상자 닫기
 	//let close = document.getElementsByClassName('close')[0];	//getElementsXXX 이면 배열 리턴. 그 요소중에 0번 인덱스
@@ -186,7 +188,7 @@
 	
 	function login(){
 		//location.href = '${pageContext.request.contextPath}/login/loginForm.jsp';
-		document.forms[0].action='../login/loginForm.jsp?back=detail';
+		document.forms[0].action='../login/loginForm.jsp?back=detailView';
 		// 다시 지금 페이지로 돌아오기 위해 필요한 값 mref,page 요소 값을 전달.(textarea는 불필요.)
 		document.forms[0].content.disabled = true;
 		document.forms[0].submit();

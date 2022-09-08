@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>우리 동네 커뮤니티</title>
+<title>자유게시판</title>
 <!-- 절대경로 request.getContextPath() 을 el로 표시-->
 <link rel="stylesheet" 
 href="${pageContext.request.contextPath }/css/freeboard.css?v=3">
 </head>
 <body>
-<h3>우리동네 커뮤니티</h3>
+<h3>자유게시판</h3>
 <hr>
 <main>
 <div style="margin:auto;">
@@ -30,13 +30,12 @@ href="${pageContext.request.contextPath }/css/freeboard.css?v=3">
 	<li>
 	<ul  class="row">
 		<li>${vo.f_idx }</li>
-		<li><a href="detailAction.jsp?idx=${vo.idx}&page=${page}" class="title">${vo.f_subject }</a>
+		<li><a href="detailAction.jsp?idx=${vo.f_idx}&page=${page}" class="title">${vo.f_subject }</a>
 	 		...<span style="color:orange;font-size: 80%;">(${vo.commentCount })
 	 		</span></li>
 		<li>${vo.nickName }</li>
 		<li>${vo.readCount }</li>
 		<li>
-		<!-- vo.wdate 날짜 패턴을 적용한 결과 문자열을 wdate 변수로 저장 -->
 		<fmt:formatDate value="${vo.fdate }" pattern="yyyy-MM-dd" var="wdate"/>
 		<!-- 오늘 작성한 글은 시간으로 표시 -->
 		<c:if test='${fdate == today}'>
@@ -70,12 +69,10 @@ href="${pageContext.request.contextPath }/css/freeboard.css?v=3">
 	</c:forEach>
 	
 	<a class="pagenum" href="?page=${pagelist.endPage+1 }"
-			style='<c:if test="${pagelist.endPage==pagelist.totalPage }">display:none;</c:if>'	>&gt;</a>
+			style='<c:if test="${pagelist.endPage==pagelist.totalPage }">display:none;</c:if>' >&gt;</a>
 	<a class="pagenum" href="?page=${pagelist.totalPage }">&gt;&gt;</a>
 </div>
-
 </main>
-
 </body>
 </html>
 

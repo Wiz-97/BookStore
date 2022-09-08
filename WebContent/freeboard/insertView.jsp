@@ -30,7 +30,6 @@ th {
 <body>
 <h3>글쓰기</h3>
 <hr>
-<%= request.getRemoteAddr() %>
 <form name="frm1" method="post" action="insertAction.jsp">
 
  <table>
