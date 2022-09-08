@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comments">
+	<select id="getComments" parameterType="int" resultType="vo.CommentVo">
+		SELECT * FROM PRO_COMMENTS WHERE mno = #{mno}
+	</select>
+	
+	<insert id="insert" parameterType="vo.CommentVo">
+		INSERT INTO PRO_COMMENTS (cno,mno,nickName,c_content) 
+		VALUES (cno_seq.nextval,#{mno},#{nickName},#{c_content})
+	</insert>
+	
+	<update id="updateCmtCount" parameterType="int">
+		UPDATE PRO_FREEBOARD
+		SET COMMENTCOUNT = (SELECT count(*)
+		FROM PRO_COMMENTS WHERE mno = #{mno})
+		WHERE f_idx = #{f_idx}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM PRO_COMMENTS WHERE cno = #{cno}
+	</delete>
+</mapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="freeboard">  
+
+<select id="getPageList" 
+	parameterType="java.util.Map"
+	resultType="board.vo.Freeboard">
+SELECT * FROM 
+	(SELECT rownum r ,f.* from
+		(SELECT * FROM FREEBOARD  
+		ORDER BY f_idx DESC) f)
+WHERE r BETWEEN #{startNo} AND #{endNo}
+</select>
+
+<select id="getCount" resultType="int">
+SELECT count(*) FROM PRO_FREEBOARD
+</select>
+
+<select id="detail" resultType="vo.FreeboardVo" parameterType="int">
+SELECT * FROM PRO_FREEBOARD where f_idx = #{f_idx}
+</select>
+
+<insert id="insert" parameterType="vo.FreeboardVo">
+INSERT INTO PRO_FREEBOARD(f_idx,nickName,f_password,f_subject,f_content)
+VALUES (f_idx_seq.nextval, #{nickName}, #{f_password}, #{f_subject}, #{f_content})
+</insert>
+
+<update id="readcountUp">
+UPDATE PRO_FREEBOARD
+SET READCOUNT = READCOUNT +1
+WHERE f_idx = #{f_idx}
+</update>
+
+<update id="update" parameterType="vo.FreeboardVo">
+update PRO_FREEBOARD set f_subject = #{f_subject} ,
+f_content=#{f_content}, fdate = sysdate 
+where f_idx = #{f_idx}
+</update>
+
+<delete id="delete" parameterType="java.util.Map">
+	delete from PRO_FREEBOARD where f_idx = #{f_idx} and f_password=#{f_password}
+</delete>
+
+</mapper>  
