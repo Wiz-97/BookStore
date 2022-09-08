@@ -36,7 +36,7 @@ href="${pageContext.request.contextPath }/css/freeboard.css?v=3">
 		<li>${vo.nickName }</li>
 		<li>${vo.readCount }</li>
 		<li>
-		<fmt:formatDate value="${vo.fdate }" pattern="yyyy-MM-dd" var="wdate"/>
+		<fmt:formatDate value="${vo.fdate }" pattern="yyyy-MM-dd" var="fdate"/>
 		<!-- 오늘 작성한 글은 시간으로 표시 -->
 		<c:if test='${fdate == today}'>
 			<fmt:formatDate value="${vo.fdate }" type="time"/>

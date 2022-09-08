@@ -41,7 +41,6 @@ public class FreeboardDao {
 	public void insert(FreeboardVo vo) {
 		SqlSession mapper = factory.openSession();
 		mapper.insert("Freeboard.insert",vo );  
-		// 매퍼 xml 네임스페이스.id, 다른 매퍼 파일과 id중복일 경우 네임스페이로 식별
 		mapper.commit();
 		mapper.close();
 	}

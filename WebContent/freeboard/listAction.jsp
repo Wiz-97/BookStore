@@ -31,7 +31,7 @@
 	request.setAttribute("today", LocalDate.now());
 	
 	//페이지 번호를 애트리뷰트로 저장
-	request.setAttribute("page", pageNo);		//PageVo 작성하면 아래 pagelist로 대체할수 있습니다.
+//	request.setAttribute("page", pageNo);		//PageVo 작성하면 아래 pagelist로 대체할수 있습니다.
 	request.setAttribute("pagelist", pages);
 	pageContext.forward("listView.jsp");
 %>
