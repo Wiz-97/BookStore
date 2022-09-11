@@ -8,7 +8,7 @@
 	String userid = request.getParameter("userid");
 	String password = request.getParameter("password");
 
-	MemberDao dao = MemberDao.getInstance(); 
+	MemberDao dao = MemberDao.getInstance();
 	Map<String,String> map = new HashMap<>();
 	map.put("email", userid);
 	map.put("password", password);

@@ -30,6 +30,9 @@ https://mybatis.org/mybatis-3/ko/getting-started.html 참고
     <mapper resource="mybatis/Freeboard.xml"/>
     <mapper resource="mybatis/BookAdmin.xml"/>
     <mapper resource="mybatis/Review.xml"/>
+    <mapper resource="mybatis/booklist.xml"/>
+    <mapper resource="mybatis/category.xml"/>
+    
     <!-- sql mapper 파일은 여러개 사용될 수 있습니다. -->
   </mappers>
 </configuration>

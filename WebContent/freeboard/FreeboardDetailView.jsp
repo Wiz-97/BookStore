@@ -23,7 +23,7 @@
 			<li>
 				<ul class="row">
 					<li>제목</li>
-					<li>${bean.subject}</li>
+					<li>${bean.f_subject}</li>
 					<li>조회수</li>
 					<li>${bean.readCount}</li>
 				</ul>
@@ -51,13 +51,13 @@
 		<a class="button" href="javascript:modalSet(2)">수정</a>
 		<!--  예시 : 글 비밀번호 입력하여 삭제. -->
 		<a class="button" href="javascript:modalSet(1)">삭제</a>  <!-- 함수명 변경 -->
-		<a class="button" href="listAction.jsp?page=${page }">목록</a>
+		<a class="button" href="FreeboardListAction.jsp?page=${page }">목록</a>
 	</div>
 	<!-- 메인글 출력 끝 -->
 	
 	<hr>
 	<!-- 댓글 등록 -->
-	<form action="commentAction.jsp" method="post">
+	<form action="FreeboardCommentAction.jsp" method="post">
 	<!-- 필요한 파라미터 이지만 화면에는 표시안함. 2개 필요 : 메인글의 f_idx , 현재글의 페이지번호 -->
 	<input type="hidden" name="f_idx" value="${bean.f_idx }">
 	<input type="hidden" name="page" value="${page }">
@@ -128,7 +128,7 @@
 			<div style="padding: 0px 20px;">
 				<b>글 비밀번호</b><br>
 				<br>
-				<form action="deleteAction.jsp" method="post" name="frmPassword">
+				<form action="FreeboardDeleteAction.jsp" method="post" name="frmPassword">
 						
 					<input type="hidden" name="f_idx" value="${bean.f_idx }"> <!--삭제할 글번호-->
 					<input type="hidden" name="page" value="${page }">	
@@ -160,10 +160,10 @@
 	//메인글 수정
 	function modalOK() {
 		if(document.forms[1].func.value==='2'){ //수정
-			document.forms[1].action = 'updateAction.jsp'
+			document.forms[1].action = 'FreeboardUpdateAction.jsp'
 			document.forms[1].submit();
 		}else if (document.forms[1].func.value==='1'){
-			document.forms[1].action = 'deleteAction.jsp'
+			document.forms[1].action = 'FreeboardDeleteAction.jsp'
 			document.forms[1].submit();
 		}else{
 			alert('잘못된 동작입니다.');
@@ -175,7 +175,7 @@
 			const yn = confirm('댓글 삭제하시겠습니까?');
 			if(yn) {
 				//함수의 인자로 받은 2개의 값은 파라미터로 전달합니다. 추가된 파라미터 del 이 있습니다.
-				location.href='commentAction.jsp?del=y&page=${page}&cno='+ cno + '&idx=' + f_idx;
+				location.href='FreeboardCommentAction.jsp?del=y&page=${page}&cno='+ cno + '&idx=' + f_idx;
 			}else {
 				alert('댓글 삭제 취소합니다.');
 			}
@@ -188,7 +188,7 @@
 	
 	function login(){
 		//location.href = '${pageContext.request.contextPath}/login/loginForm.jsp';
-		document.forms[0].action='../login/loginForm.jsp?back=detailView';
+		document.forms[0].action='../login/loginForm.jsp?back=FreeboardDetailView';
 		// 다시 지금 페이지로 돌아오기 위해 필요한 값 mref,page 요소 값을 전달.(textarea는 불필요.)
 		document.forms[0].content.disabled = true;
 		document.forms[0].submit();

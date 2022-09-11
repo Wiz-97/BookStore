@@ -54,7 +54,7 @@ button:hover {
 <body>
 <h3>우리동네 커뮤니티 글 수정</h3>
 <hr>
-<form name="frm1" method="post" action="updateSave.jsp">
+<form name="frm1" method="post" action="FreeboardUpdateSave.jsp">
 	<input type="hidden" name="f_idx" value="${vo.f_idx }">
 	<input type="hidden" name="page" value="${page }">
  <table>
@@ -77,7 +77,7 @@ button:hover {
  	<tr><td colspan="2" align="center">
  	<button type="submit">저장</button>
  	<button type="reset">다시쓰기</button>
- 	<button type="button" onclick="location.href='listAction.jsp?page=${page}'">목록</button>
+ 	<button type="button" onclick="location.href='FreeboardListAction.jsp?page=${page}'">목록</button>
  	<%-- <%=request.getParameter("page") %> 를 el 표시로 변경할때는 param 키워드.파라미터이름 으로 합니다.--%>
  	</td></tr>
  </table>

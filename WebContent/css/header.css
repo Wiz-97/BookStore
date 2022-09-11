@@ -1,6 +1,12 @@
-@charset "UTF-8";
+HTML CSSResult Skip Results Iframe
+EDIT ON
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.header{
+.header {
     width: 80%;
     height: 80px;
     margin:0 auto;
@@ -9,20 +15,50 @@
     align-items: center;
 }
 
- .header h1 a{
+.header h1 a {
     text-decoration: none;
     color:black;
     font-family: abster;
 }
 
-.nav ul li{
+.nav a {
     display: inline-block;
     margin:0 10px;
-}
-.nav ul li a{
     text-decoration: none;
     color:black;
 }
-.nav ul li a:hover{
+
+.nav a:hover {
     color:silver;
 }
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.cate a {
+	text-decoration: none;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}

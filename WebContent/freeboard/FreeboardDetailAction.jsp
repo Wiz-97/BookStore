@@ -24,5 +24,5 @@
     	FreeboardVo bean = freedao.getDetail(f_idx);
     	request.setAttribute("bean", bean);
     	
-    	pageContext.forward("detailView.jsp");		//화면 페이지로 애트리뷰트와 함께 요청 전달.
+    	pageContext.forward("FreeboardDetailView.jsp");		//화면 페이지로 애트리뷰트와 함께 요청 전달.
     %>

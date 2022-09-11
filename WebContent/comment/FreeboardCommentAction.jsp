@@ -11,7 +11,7 @@
 		int cno = Integer.parseInt(request.getParameter("cno"));
 		int f_idx = Integer.parseInt(request.getParameter("f_idx"));
 		dao.delete(cno);
-		response.sendRedirect("detailAction.jsp?idx="+f_idx + "&page="+request.getParameter("page"));
+		response.sendRedirect("FreeboardDetailAction.jsp?idx="+f_idx + "&page="+request.getParameter("page"));
 	} else {
 		//댓글 등록
 		int mno= Integer.parseInt(request.getParameter("mno"));
@@ -24,6 +24,6 @@
 		CommentVo vo = new CommentVo(0,mno,f_idx,nickName,c_content,null,0);
 		dao.insert(vo);
 		//댓글 등록 확인하기 위해 글상세보기 페이지로 이동
-		response.sendRedirect("?.jsp?idx="+mno+"&page="+request.getParameter("page"));
+		response.sendRedirect("FreeboardDetailView.jsp?idx="+f_idx+"&page="+request.getParameter("page"));
 	}
 %>

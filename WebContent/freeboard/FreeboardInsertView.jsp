@@ -30,7 +30,7 @@ th {
 <body>
 <h3>글쓰기</h3>
 <hr>
-<form name="frm1" method="post" action="insertAction.jsp">
+<form name="frm1" method="post" action="FreeboardInsertAction.jsp">
 
  <table>
  	<tr><th>제목</th>
@@ -42,7 +42,7 @@ th {
  	</tr>
  	
  	<tr><th>글 비밀번호</th>
- 		<td><input type="password" name="password" required></td>
+ 		<td><input type="password" name="f_password" required></td>
  	</tr>
  	<tr><th>내용</th>  <!-- textarea 의 크기 : rows="20" cols="80" -->
  		<td><textarea  rows="20" cols="60" name="f_content" required></textarea>
@@ -51,7 +51,7 @@ th {
  	<tr><td colspan="2" align="center">
  	<input type="submit" value="저장" class="btn" >
  	<input type="reset"  value="다시쓰기" class="btn">
- 	<input type="button" value="목록" onclick="location.href='listAction.jsp?page=${param.page}'" class="btn">
+ 	<input type="button" value="목록" onclick="location.href='FreeboardListAction.jsp?page=${param.page}'" class="btn">
  	<%-- <%=request.getParameter("page") %> 를 el 표시로 변경할때는 param 키워드.파라미터이름 으로 합니다.--%>
  	</td></tr>
  </table>

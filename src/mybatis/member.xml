@@ -7,4 +7,16 @@
 	select*from pro_member
 	where m_email=#{email} and m_password =#{password}
 </select>
+<!-- 이름별 회원 조회  (필요시 m_address로 변경해서 추가가능)-->
+<select id="searchMember" parameterType="String"
+		resultType="vo.Member">
+		SELECT * FROM pro_member
+		where m_name like '%'||#{m_name}||'%'
+	</select>
+	 <insert id="minsert" parameterType="vo.Member">
+    INSERT INTO 
+    PRO_MEMBER (mno, m_name, m_address, nickName,m_email, m_tel, m_password) 
+   VALUES (mno_seq.nextval, #{m_name}, #{m_address}, #{nickName},#{ m_email}, #{m_tel}, #{m_password})
+    </insert>
+	
 </mapper>  

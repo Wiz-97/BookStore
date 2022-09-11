@@ -1,42 +1,49 @@
 package dao;
 
-import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import mybatis.SqlSessionBean;
 import vo.ReviewVo;
+import mybatis.SqlSessionBean;
 
 public class ReviewDao {
-	private static ReviewDao dao = new ReviewDao();
-
-	private ReviewDao() { }
-
-	public static ReviewDao getInstance() {
-		return dao;
-	}
 
 	SqlSessionFactory factory = SqlSessionBean.getSessionFactory();
-	
-	public int delete(int idx) {
-		SqlSession mapper = factory.openSession();
-		int result = mapper.delete("Review.delete", idx);
-		mapper.commit(); mapper.close();
-		return result;	
-	}
-	
+	private static ReviewDao dao = new ReviewDao();
+	private ReviewDao() {}
+	public static ReviewDao getInstance() {
+		return dao;
+}
+	public int getCount() {
+	      SqlSession mapper = factory.openSession();
+	      int count = mapper.selectOne("getCount");
+	      mapper.close();
+	      return count;
+	   }
 	public int insert(ReviewVo vo) {
 		SqlSession mapper = factory.openSession();
-		int result = mapper.insert("Review.insert", vo);
-		mapper.commit(); mapper.close();
+		int result  = mapper.insert("insert", vo);	
+		mapper.commit();     
+		mapper.close();
 		return result;
+
+}
+	public int delete (Map<String, Object>map) {
+		   SqlSession mapper = factory.openSession();
+		   int result = mapper.delete("review.delete",map);
+		   mapper.commit();
+		   mapper.close();
+		   return result;
+	   }
+	
+	public void update(ReviewVo vo) {
+		   SqlSession mapper = factory.openSession();
+		   mapper.update("review.update", vo);
+		   mapper.commit();
+		   mapper.close();
+		
 	}
 	
-	public List<ReviewVo> getReview(int mno){
-		SqlSession mapper = factory.openSession();
-		List<ReviewVo> list = mapper.selectList("getReview", mno);
-		mapper.close();
-		return list;
-	}
 }

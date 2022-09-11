@@ -23,7 +23,7 @@
                  </c:if>
                     <li><a href="#">카테고리</a></li>
                     <li><a href="#">신간 도서</a></li>
-                    <li><a href="../freeboard/listView.jsp">커뮤니티</a></li>
+                    <li><a href="../freeboard/FreeboardListView.jsp">커뮤니티</a></li>
                 </ul>
             </div>
         </div>
