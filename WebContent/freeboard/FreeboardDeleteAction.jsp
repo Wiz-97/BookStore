@@ -6,12 +6,12 @@
 <%
 	int f_idx = Integer.parseInt(request.getParameter("f_idx"));
 	String pageNo = request.getParameter("page");
-	String password = request.getParameter("password");
+	String f_password = request.getParameter("f_password");
 	
 	FreeboardDao dao = FreeboardDao.getInstance();
 	Map<String,Object> map = new HashMap<>();
 	map.put("f_idx",f_idx);
-	map.put("password",password);
+	map.put("f_password",f_password);
 	int result = dao.delete(map);
 	String message;String href;
 	if(result == 1){  //글 비밀번호 일치 : 삭제 완료 -> 글 목록으로 이동.

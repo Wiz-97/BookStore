@@ -28,7 +28,6 @@ https://mybatis.org/mybatis-3/ko/getting-started.html 참고
     <mapper resource="mybatis/comments.xml"/>
     <mapper resource="mybatis/member.xml"/>
     <mapper resource="mybatis/Freeboard.xml"/>
-    <mapper resource="mybatis/BookAdmin.xml"/>
     <mapper resource="mybatis/Review.xml"/>
     <mapper resource="mybatis/booklist.xml"/>
     <mapper resource="mybatis/category.xml"/>

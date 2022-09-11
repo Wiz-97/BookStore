@@ -53,9 +53,8 @@
 				<a href="FreeboardInsertView.jsp?page=${page }" class="button">글쓰기</a>
 			</div>
 		</div>
-		<!-- 페이지 버튼을 클릭하면 url  http://192.168.1.254:8082/jsp2/board/listAction.jsp 은 동일하고 
-	 page 파라미터만 변경됩니다.  이런 경우 앞의 부분 생략하고 ? 부터 작성.
--->
+		<!-- 페이지 버튼을 클릭하면 url  http://192.168.1.254:8082/jsp2/board/listAction.jsp 은 동일하고 page 파라미터만 변경됩니다.
+		이런 경우 앞의 부분 생략하고 ? 부터 작성.-->
 		<div style="width: 700px; margin: auto; text-align: center;">
 			전체 글 개수 :
 			<c:out value="${pagelist.totalCount }" />

@@ -2,13 +2,13 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="freeboard">  
+<mapper namespace="Freeboard">  
 
 <select id="getPageList" 
 	parameterType="java.util.Map"
 	resultType="vo.FreeboardVo">
 SELECT * FROM 
-	(SELECT rownum r ,f.* from
+	(SELECT rownum r , f.* from
 		(SELECT * FROM PRO_FREEBOARD  
 		ORDER BY f_idx DESC) f)
 WHERE r BETWEEN #{startNo} AND #{endNo}
