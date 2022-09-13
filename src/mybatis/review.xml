@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="review">
+	<insert id="insert" parameterType="pro.vo.ReviewVo">
+		INSERT INTO PRO_REVIEW (rno,mno,bno,nickName,c_content,r_date,r_heart) 
+		VALUES (rno_seq.nextval,#{mno},#{bno},#{nickName},#{c_content},sysdate,#{r_heart})
+	</insert>
+	<update id="update" parameterType="pro.vo.ReviewVo">
+		UPDATE PRO_REVIEW
+		SET c_content = #{c_content}
+		WHERE rno = #{rno}
+	</update>
+	<select id="myReview" resultType="pro.vo.ReviewVo" parameterType="int">
+	SELECT* FROM PRO_REVIEW WHERE mno = #{mno}
+	</select>
+	<select id="BookReviewDetail" resultType="pro.vo.ReviewVo" parameterType="int">
+	SELECT* FROM PRO_REVIEW WHERE bno = #{bno}
+	</select>
+	<select id="reviewdetail" resultType="pro.vo.ReviewVo" parameterType="int">
+	SELECT r_content FROM PRO_REVIEW WHERE rno = #{rno}
+	</select>
+	<select id="getreview" resultType="pro.vo.ReviewVo" parameterType="int">
+	SELECT rno FROM PRO_REVIEW WHERE NICKNAME = #{NICKNAME} AND  BNO = #{bno}
+	</select>
+	
+	</mapper>

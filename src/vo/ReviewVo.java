@@ -1,22 +1,22 @@
 package vo;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import java.sql.Timestamp;
 
-@Getter
-@Setter
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
 public class ReviewVo {
 	private int rno;
 	private int mno;
 	private int bno;
 	private String nickName;
 	private String r_content;
-	private String r_date;
+	private Timestamp r_date;
 	private int r_heart;
-	;
+	
 
 }
