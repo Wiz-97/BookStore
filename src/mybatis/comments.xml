@@ -4,12 +4,12 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comments">
 	<select id="getComments" parameterType="int" resultType="vo.CommentVo">
-		SELECT * FROM PRO_COMMENTS WHERE mno = #{mno}
+		SELECT * FROM PRO_COMMENTS WHERE f_idx = #{f_idx}
 	</select>
 	
 	<insert id="insert" parameterType="vo.CommentVo">
 		INSERT INTO PRO_COMMENTS (cno,mno,nickName,c_content) 
-		VALUES (cno_seq.nextval,#{mno},#{nickName},#{c_content})
+		VALUES (cno_seq.nextval,mno_seq.nextval,#{nickName},#{c_content})
 	</insert>
 	
 	<update id="updateCmtCount" parameterType="int">

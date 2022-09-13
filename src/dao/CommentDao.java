@@ -18,7 +18,7 @@ public class CommentDao {
 	
 	public int updateCmtCount(int mref) {
 		SqlSession mapper = factory.openSession();
-		int result = mapper.update("updateCmtCount",mref);
+		int result = mapper.update("comments.updateCmtCount", mref);
 		mapper.commit(); mapper.close();
 		return result;
 	}

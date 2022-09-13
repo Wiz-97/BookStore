@@ -13,7 +13,7 @@
 	String f_password = request.getParameter("f_password");		
 	
 	FreeboardDao fdao = FreeboardDao.getInstance();
-	FreeboardVo fdata = new FreeboardVo(0,0,nickName,f_subject,f_content,f_password,0,null,0,0);
+	FreeboardVo fdata = new FreeboardVo(0,nickName,f_subject,f_content,f_password,0,null,0,0);
 	fdao.insert(fdata);
 	response.sendRedirect("FreeboardListAction.jsp");   //글 목록 화면으로 url 재요청
 %>

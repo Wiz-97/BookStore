@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FreeboardVo {
 	private int f_idx;
-	private int mno;
 	private String nickName;
 	private String f_subject;
 	private String f_content;

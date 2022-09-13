@@ -52,7 +52,7 @@ button:hover {
 </style>
 </head>
 <body>
-<h3>우리동네 커뮤니티 글 수정</h3>
+<h3>글 수정</h3>
 <hr>
 <form name="frm1" method="post" action="FreeboardUpdateSave.jsp">
 	<input type="hidden" name="f_idx" value="${vo.f_idx }">

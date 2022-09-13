@@ -78,21 +78,21 @@
 					<li>
 						<textarea rows="5" cols="80" name="c_content" 
 						style="resize:none;margin-right:20px;" 
-						placeholder="로그인 후에 댓글을 작성하세요." class="input"></textarea>
+						placeholder="댓글을 작성하세요." class="input"></textarea>
 					</li>				
 						<li style="align-self: center;margin-bottom: 20px;">
 						<!-- sessionScope.user 는 session 에 저장된 애트리뷰트 user 를 가져옵니다.
 							 sessionScope 을 생략할 수 있지만 request , application 등 다른 영역에 중복된 이름이 있을때를
 							 고려하여 명시적으로 지정합니다.
 						 -->
-							<c:if test="${sessionScope.user != null }">  <!-- 로그인 했을때 -->
+							<%-- <c:if test="${sessionScope.user != null }">  <!-- 로그인 했을때 --> --%>
 								<button type="submit">저장</button>
 								<button type="button" onclick="reset_content()">취소</button>
-							</c:if>
+							<%-- </c:if>
 							<c:if test="${sessionScope.user == null }">		<!-- 로그인 안했들때 -->
 								<button type="button" onclick="login()" 
 								style="font-size: 0.6em;">로그인</button>
-							</c:if>
+							</c:if> --%>
 					</li>
 				</ul>
 			</li>
@@ -107,7 +107,7 @@
 			<li>
 				<ul class="crow">
 					<li>${cmt.nickName }</li>								
-					<li>${cmt.fdate }</li>		
+					<li>${cmt.c_date }</li>		
 					<!-- 삭제 구현 1) 로그인한 사용자의 글만 삭제 버튼이 보입니다.-->	
 					<c:if test="${sessionScope.user != null}">	
 						<button type ="button" onclick="javascript:deleteCmt('${cmt.cno }','${bean.f_idx }')">삭제</button>	
@@ -115,7 +115,7 @@
 				</ul>
 			</li>
 			<li>
-				<pre class="cmtcontent">${cmt.content }</pre>
+				<pre class="cmtcontent">${cmt.c_content }</pre>
 			</li>
 			</c:forEach>
 		</ul>	
