@@ -20,7 +20,7 @@ public class CategoryDao {
 	
 	public List<CategoryVo> viewCate() {
 		SqlSession mapper = factory.openSession();
-		List<CategoryVo> result = mapper.selectList("category.select");
+		List<CategoryVo> result = mapper.selectList("category.selectcate");
 		mapper.close();
 		return result;
 	}

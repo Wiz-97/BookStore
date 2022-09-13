@@ -16,7 +16,7 @@
 </head>
 <body>  <!-- 메인글: 익명으로 예시(글비밀번호 사용합니다.) , 댓글 : 실명으로 예시(로그인을 해야 글작성,삭제 할수 있습니다.) -->
 <main>
-	<h3>자유게시판 글 상세보기</h3>
+	<h3 style="text-align: center;">자유게시판 글 상세보기</h3>
 	<hr>
 	<div style="width: 80%; margin: auto;max-width: 700px;">
 		<ul id="main">
@@ -48,9 +48,11 @@
 			</li>
 		</ul>
 	<div style="text-align: center;margin-bottom: 10px;">
+		<%-- <c:if test="${sessionScope.user == bean.nickName}"> --%>
 		<a class="button" href="javascript:modalSet(2)">수정</a>
 		<!--  예시 : 글 비밀번호 입력하여 삭제. -->
 		<a class="button" href="javascript:modalSet(1)">삭제</a>  <!-- 함수명 변경 -->
+		<%-- </c:if> --%>
 		<a class="button" href="FreeboardListAction.jsp?page=${page }">목록</a>
 	</div>
 	<!-- 메인글 출력 끝 -->
@@ -133,7 +135,7 @@
 					<input type="hidden" name="f_idx" value="${bean.f_idx }"> <!--삭제할 글번호-->
 					<input type="hidden" name="page" value="${page }">	
 					<input type="hidden" name="func" value="1">	
-					<input type="text" name="delete" size="10">
+					<input type="text" name="f_password" size="10">
 					<button style="padding: 5px 20px;" type="button" onclick="modalOK()">확인</button>	
 					<br>
 					<span style="color:red;font-size:0.8em;" id="err"></span>
@@ -142,8 +144,6 @@
 		</div>
 	</div>
 	<!-- 모달 끝 -->
-	
-	
 	<script type="text/javascript">
 	//모달 입력 상자 닫기
 	//let close = document.getElementsByClassName('close')[0];	//getElementsXXX 이면 배열 리턴. 그 요소중에 0번 인덱스
@@ -181,16 +181,16 @@
 			}
 	}
 	
-	if('${sessionScope.user}' != null) {	//로그인한 사용자의 이메일을 작성자 입력란에 표시하기(읽기전용)
+	if ('${sessionScope.user}' != null) {	//로그인한 사용자의 이메일을 작성자 입력란에 표시하기(읽기전용)
 		document.forms[0].nickName.value = '${sessionScope.user.email}';
 		document.forms[0].nickName.readonly = true;
 	}
 	
 	function login(){
 		//location.href = '${pageContext.request.contextPath}/login/loginForm.jsp';
-		document.forms[0].action='../login/loginForm.jsp?back=FreeboardDetailView';
+		document.forms[0].action='../login/loginForm.jsp';
 		// 다시 지금 페이지로 돌아오기 위해 필요한 값 mref,page 요소 값을 전달.(textarea는 불필요.)
-		document.forms[0].content.disabled = true;
+		document.forms[0].c_content.disabled = true;
 		document.forms[0].submit();
 		// 
 	}
@@ -199,6 +199,8 @@
 		document.forms[0].content.value=""
 	}
 	</script>
+	
+	
 	</main>
 </body>
 </html>

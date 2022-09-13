@@ -5,33 +5,33 @@
 <mapper namespace="booklist">
 
 	<select id="select" parameterType="String"
-		resultType="pro.vo.BookListVo">
+		resultType="vo.BookListVo">
 		SELECT * FROM pro_booklist
 		where cgno like '%'||#{cgno}||'%'
 		ORDER BY b_date DESC
 	</select>
 
-	<select id="detail" resultType="pro.vo.BookListVo" parameterType="int">
+	<select id="detail" resultType="vo.BookListVo" parameterType="int">
 		SELECT * FROM pro_booklist WHERE bno = #{bno}
 	</select>
 
-	<select id="search" parameterType="java.util.Map" resultType="pro.vo.BookListVo">
+	<select id="search" parameterType="java.util.Map" resultType="vo.BookListVo">
 		SELECT * FROM pro_booklist
 		<if test="column=='title'">
-			where title like '%'||#{find}||'%'
+			where b_title like '%'||#{find}||'%'
 		</if>
 		<if test="column=='b_writer'">
 			where b_writer like '%'||#{find}||'%'
 		</if>
 	</select>
 	
-	<insert id="insert" parameterType="pro.vo.BookListVo">
-		insert into pro_booklist (bno,title,b_date,b_price,cgno,b_writer,publisher,b_img)
-		values (bno_seq.nextval,#{title},#{b_date},#{b_price},#{cgno},#{b_writer},#{publisher},#{b_img})
+	<insert id="insert" parameterType="vo.BookListVo">
+		insert into pro_booklist (bno,b_title,b_date,b_price,cgno,b_writer,b_publisher,b_img)
+		values (bno_seq.nextval,#{b_title},#{b_date},#{b_price},#{cgno},#{b_writer},#{b_publisher},#{b_img})
 	</insert>
 
-	<update id="update" parameterType="pro.vo.BookListVo">
-		update pro_booklist set title=#{title}, b_date=#{b_date}, b_price=#{b_price}, cgno=#{cgno}, b_writer=#{b_writer}, publisher=#{publisher}, b_img=#{b_img}
+	<update id="update" parameterType="vo.BookListVo">
+		update pro_booklist set b_title=#{b_title}, b_date=#{b_date}, b_price=#{b_price}, cgno=#{cgno}, b_writer=#{b_writer}, b_publisher=#{b_publisher}, b_img=#{b_img}
 	</update>
 	
 	<delete id="delete" parameterType="int">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +39,7 @@ th {
  	</tr>
  	<tr>
 		<th>작성자</th>
+ 		<%-- <td>${sessionScope.user }</td> --%>
  		<td><input type="text" name="nickName" size="50" required></td>
  	</tr>
  	
@@ -48,11 +50,22 @@ th {
  		<td><textarea  rows="20" cols="60" name="f_content" required></textarea></td>
  	</tr>
  	<tr><td colspan="2" align="center">
+ <%-- 	<c:if test='${sessionScope.user != null }'> --%>
  	<input type="submit" value="저장" class="btn" >
+<%--  	</c:if>
+ 	<c:if test='${sessionScope.user == null }'>
+ 	<button type="button" onclick="login()" class="btn">로그인</button>
+ 	</c:if> --%>
  	<input type="reset"  value="다시쓰기" class="btn">
  	<input type="button" value="목록" onclick="location.href='FreeboardListAction.jsp?page=${param.page}'" class="btn">
  	</td></tr>
  </table>
  </form>
+ <script>
+ function login(){
+		document.forms[0].action='../login/loginForm.jsp';
+		document.forms[0].submit();
+	}
+ </script>
 </body>
 </html>

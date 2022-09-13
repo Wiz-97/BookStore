@@ -26,9 +26,9 @@
 	List<FreeboardVo> list = dao.getPageList(map);
 	request.setAttribute("list", list);
 	request.setAttribute("today", LocalDate.now());
-	
+	//여기서 select 결과를 리스트에 저장하고 view.jsp로 가야해요.
 	//페이지 번호를 애트리뷰트로 저장
-//	request.setAttribute("page", pageNo);
+	request.setAttribute("page", pageNo);
 	request.setAttribute("pagelist", pages);
 	pageContext.forward("FreeboardListView.jsp");
 %>

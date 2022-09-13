@@ -19,7 +19,7 @@
 		href = "FreeboardListAction.jsp?page="+pageNo;
 	}else {		//글 비밀번호 불일치 : 삭제 못함. -> 글 상세보기로 이동
 		message = "글 비밀번호가 틀립니다.";
-		href = "FreeboardDetailAction.jsp?idx="+f_idx + "&page=" + pageNo;
+		href = "FreeboardDetailAction.jsp?f_idx=" + f_idx + "&page=" + pageNo;
 	}
 	
 	out.print("<script>");

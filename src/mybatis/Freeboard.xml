@@ -23,8 +23,8 @@ SELECT * FROM PRO_FREEBOARD where f_idx = #{f_idx}
 </select>
 
 <insert id="insert" parameterType="vo.FreeboardVo">
-INSERT INTO PRO_FREEBOARD(f_idx,nickName,f_password,f_subject,f_content)
-VALUES (f_idx_seq.nextval, #{nickName}, #{f_password}, #{f_subject}, #{f_content})
+INSERT INTO PRO_FREEBOARD(f_idx,nickName,f_subject,f_content,f_password)
+VALUES (f_idx_seq.nextval,#{nickName},#{f_subject},#{f_content},#{f_password})
 </insert>
 
 <update id="readcountUp">
@@ -40,7 +40,7 @@ f_content=#{f_content}, fdate = sysdate
 </update>
 
 <delete id="delete" parameterType="java.util.Map">
-	delete from PRO_FREEBOARD where f_idx = #{f_idx} and f_password=#{f_password}
+	DELETE from PRO_FREEBOARD where f_idx = #{f_idx} and f_password=#{f_password}
 </delete>
 
 </mapper>  

@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BookListVo {
 	private int bno;
-	private String title;
+	private String b_title;
 	private String b_date;
 	private int b_price;
 	private String cgno;
 	private String b_writer;
-	private String publisher;
+	private String b_publisher;
 	private String b_img;
 }

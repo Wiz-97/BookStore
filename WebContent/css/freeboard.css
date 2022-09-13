@@ -31,8 +31,8 @@ main ul .row {
 }
 
 .pagenum {
-    border: 1px solid#37966f;
-    color: #37966f;
+    border: 1px solid#dddddd;
+    color: #87CEFA;
     padding: 3px 5px;
     text-decoration: none;  /*  밑줄제거  */
     cursor: pointer;
@@ -42,7 +42,7 @@ main ul .row {
 	border-radius: 2px;
 }
 .pagenum:hover{
-	  background-color:#37966f;
+	  background-color:#87CEFA;
 	  color:white;
 	  font-weight: bold;
 } 
@@ -53,7 +53,7 @@ main ul .row {
 }
 
 .button {
-    background-color: #37966f;
+    background-color: #1E90FF;
     color:white;
     padding: 7px 25px;
     text-decoration: none;  /*  밑줄제거  */

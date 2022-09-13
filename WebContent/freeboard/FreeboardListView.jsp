@@ -37,14 +37,16 @@
 							</span></li>
 							<li>${vo.nickName }</li>
 							<li>${vo.readCount }</li>
-							<li><fmt:formatDate value="${vo.fdate }"
-									pattern="yyyy-MM-dd" var="fdate" /> <!-- 오늘 작성한 글은 시간으로 표시 -->
+							<li><fmt:formatDate value="${vo.fdate }" pattern="yyyy-MM-dd" var="fdate" />
+									<!-- 오늘 작성한 글은 시간으로 표시 -->
 								<c:if test='${fdate == today}'>
 									<fmt:formatDate value="${vo.fdate }" type="time" />
-								</c:if> <!-- 오늘 이전에 작성한 글은 날짜로 표시 --> <c:if test='${fdate != today}'>
+								</c:if>
+								<!-- 오늘 이전에 작성한 글은 날짜로 표시 -->
+								<c:if test='${fdate != today}'>
 									<fmt:formatDate value="${vo.fdate }" pattern="yyyy-MM-dd" />
-								</c:if></li>
-
+								</c:if>
+							</li>
 						</ul>
 					</li>
 				</c:forEach>

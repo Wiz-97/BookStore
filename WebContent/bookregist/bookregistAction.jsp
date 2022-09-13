@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String path = "";
+	String path = "C:\\0524_java_LBG\\jsp_workspace\\pro\\WebContent\\bookImg";
 
 BookListDao bdao = BookListDao.getInstance();
 int size = 20 * 1024 * 1024;
@@ -14,15 +14,15 @@ out.print("<script>");
 try {
 	MultipartRequest multi_request = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
-	String title = multi_request.getParameter("title");
+	String b_title = multi_request.getParameter("b_title");
 	String b_writer = multi_request.getParameter("b_writer");
-	String publisher = multi_request.getParameter("publisher");
+	String b_publisher = multi_request.getParameter("b_publisher");
 	String b_date = multi_request.getParameter("b_date");
 	int b_price = Integer.parseInt(multi_request.getParameter("b_price"));
 	String cgno = multi_request.getParameter("cgno");
 	String b_img = multi_request.getFilesystemName("b_img");
 
-	BookListVo rlist = new BookListVo(0, title, b_date, b_price, cgno, b_writer, publisher, b_img);
+	BookListVo rlist = new BookListVo(0, b_title, b_date, b_price, cgno, b_writer, b_publisher, b_img);
 
 	bdao.insert(rlist);
 
